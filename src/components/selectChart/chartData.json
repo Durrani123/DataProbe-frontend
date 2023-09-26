@@ -1,0 +1,135 @@
+[
+  {
+    "chartType": "Line Chart",
+    "shortDescription": "Line Trend",
+    "X Axis": {
+      "value": true,
+      "dataType": "number"
+    },
+    "Y Axis": {
+      "value": true,
+      "dataType": "number"
+    },
+    "hue": {
+      "value": true,
+      "dataType": "string"
+    },
+    "description": "Line charts connect data points with lines, showing trends over a continuous range.",
+    "image": "lineChart",
+    "generate":"line"
+  },
+  {
+    "chartType": "Area Chart",
+    "shortDescription": "Filled Area",
+    "X Axis": {
+      "value": true,
+      "dataType": "number"
+    },
+    "Y Axis": {
+      "value": true,
+      "dataType": "number"
+    },
+    "hue": {
+      "value": true,
+      "dataType": "string"
+    },
+    "description": "Area charts are similar to line charts, but the area between the line and the x-axis is filled, emphasizing the cumulative total.",
+    "image": "areaChart",
+    "generate":"area"
+  },
+  {
+    "chartType": "Scatter Plot",
+    "shortDescription": "Data Dots",
+    "X Axis": {
+      "value": true,
+      "dataType": "number"
+    },
+    "Y Axis": {
+      "value": true,
+      "dataType": "number"
+    },
+    "hue": {
+      "value": true,
+      "dataType": "string"
+    },
+    "description": "Scatter plots display individual data points as dots and are used to show the relationship between two variables.",
+    "image": "scatterPlot",
+    "generate":"scatter"
+  },
+  {
+    "chartType": "Bar Chart",
+    "shortDescription": "Graph Bars",
+    "X Axis": {
+      "value": true,
+      "dataType": "number"
+    },
+    "Y Axis": {
+      "value": true,
+      "dataType": "number"
+    },
+    "hue": {
+      "value": true,
+      "dataType": "string"
+    },
+    "description": "Bar charts display the data as rectangular bars where the length of the bar is proportional to the value being represented.",
+    "image": "barChart",
+    "generate":"bar"
+  },
+  {
+    "chartType": "Histogram",
+    "shortDescription": "Freq Dist",
+    "X Axis": {
+      "value": false,
+      "dataType": "number"
+    },
+    "Y Axis": {
+      "value": true,
+      "dataType": "number"
+    },
+    "hue": {
+      "value": false,
+      "dataType": ""
+    },
+    "description": "Histograms display the distribution of a single variable by dividing it into bins and showing the frequency of data points in each bin.",
+    "image": "histogram",
+    "generate":"histogram"
+  },
+  {
+    "chartType": "Box Plot",
+    "shortDescription": "Box Spread",
+    "X Axis": {
+      "value": false,
+      "dataType": "number"
+    },
+    "Y Axis": {
+      "value": true,
+      "dataType": "number"
+    },
+    "hue": {
+      "value": false,
+      "dataType": ""
+    },
+    "description": "Box plots, also known as box-and-whisker plots, display the distribution of a dataset using quartiles and outliers.",
+    "image": "boxPlot",
+    "generate":"box"
+  },
+  {
+    "chartType": "Count Plot",
+    "shortDescription": "Categorical",
+    "X Axis": {
+      "value": true,
+      "dataType": "string"
+    },
+    "Y Axis": {
+      "value": false,
+      "dataType": "number"
+    },
+    "hue": {
+      "value": true,
+      "dataType": "string"
+    },
+    "description": "A countplot is a string data visualization that displays the frequency of different categories using bars of varying heights.",
+    "image": "countPlot",
+    "generate":"bar"
+  }
+]

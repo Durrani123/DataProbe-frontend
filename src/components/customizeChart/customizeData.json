@@ -1,0 +1,51 @@
+[
+    {
+      "name": "Line Shape",
+      "property": "line_shape",
+      "default": "linear",
+      "choices": [
+        { "name": "Linear", "value": "linear", "description": "Straight lines connecting data points." },
+        { "name": "Spline", "value": "spline", "description": "Smooth curves connecting data points." },
+        { "name": "Step HV", "value": "hv", "description": "Step-wise lines with horizontal then vertical segments." },
+        { "name": "Step VH", "value": "vh", "description": "Step-wise lines with vertical then horizontal segments." }
+      ],
+      "description": "Select the shape of the connecting lines between data points."
+    },
+    {
+      "name": "Template",
+      "property": "template",
+      "default": "plotly",
+      "choices": [
+        { "name": "Plotly", "value": "plotly", "description": "The default Plotly template." },
+        { "name": "Plotly White", "value": "plotly_white", "description": "A white-themed Plotly template." },
+        { "name": "Plotly Dark", "value": "plotly_dark", "description": "A dark-themed Plotly template." },
+        { "name": "Presentation", "value": "presentation", "description": "A template suitable for presentations ." }
+      ],
+      "description": "Choose a template theme for the visualization."
+    },
+    {
+      "name": "Line Dash",
+      "property": "line_dash",
+      "default": "solid",
+      "choices": [
+        { "name": "Solid", "value": "solid", "description": "Solid lines connecting data points." },
+        { "name": "Dashed", "value": "dash", "description": "Dashed lines connecting data points." },
+        { "name": "Dotted", "value": "dot", "description": "Dotted lines connecting data points." },
+        { "name": "Dash-Dot", "value": "dashdot", "description": "Dash-dot lines connecting data points." }
+      ],
+      "description": "Select the style of the lines (solid, dashed, dotted, dash-dot)."
+    },
+    {
+      "name": "Title Color",
+      "property": "title_color",
+      "default": "#ff5733",
+      "choices": [
+        { "name": "Reddish Orange", "value": "#ff5733", "description": "A reddish orange color." },
+        { "name": "Sapphire Blue", "value": "#0055ff", "description": "A vibrant sapphire blue color." },
+        { "name": "Emerald Green", "value": "#50c878", "description": "A refreshing emerald green color." },
+        { "name": "Goldenrod Yellow", "value": "#daa520", "description": "A warm goldenrod yellow color." }
+      ],
+      "description": "Choose the color of the title."
+    }
+  ]
+  
