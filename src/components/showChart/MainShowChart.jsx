@@ -24,7 +24,7 @@ function Visualize({ file, chosenReq, chart, selectedCustom }) {
         setIsLoading(true);
   
         cancelTokenSourceRef.current = axios.CancelToken.source();
-        const response = await axios.post("http://localhost:8000/api/home", formData, {
+        const response = await axios.post("https://durrani123.pythonanywhere.com/api/home", formData, {
           responseType: "text",
           cancelToken: cancelTokenSourceRef.current.token,
         });
