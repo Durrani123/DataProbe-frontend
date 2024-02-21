@@ -21,8 +21,8 @@ function Navbar(prop){
                 <h3 className="md:text-7xl text-2xl">Probe</h3>
             </div>
             <div className='flex gap-4'>
-                <img src={Linkedin} alt="" className='w-5'/>
-                <img src={Github} alt="" className='w-5'/>
+                <a href="https://www.linkedin.com/in/m-abdur-rahman-durrani-495933232/"><img src={Linkedin} alt="" className='w-5'/></a>
+                <a href="https://github.com/Durrani123/"><img src={Github} alt="" className='w-5'/></a>
             </div>
         </div>
     )
