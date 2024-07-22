@@ -7,22 +7,21 @@ import getDataType from '../dataOperations/Functions/getDataType'
 
 import DraggableComponent from './components/DraggableComponent'
 import DroppableComponent from './components/DroppableComponent'
+import InputOrDropdown from './components/InputOrDropdown'
 
 import {Select,DragI} from '../../assets/Icons';
-
-
 
 function MainChart(prop){
     const dataSet = prop.dataSet
     const setChosenReq = prop.setChosenReq
     const setChart = prop.setChart
-   
+
     const column = getColumnName(dataSet)
     const allDataType = getDataType(dataSet,column)
-   
+
     const [chartSelected,setChartSelected] = useState("Line Chart")
     const selectedChart = data.find(chart => chart.chartType === chartSelected);
-   
+
     const xAxis = selectedChart["X Axis"]
     const yAxis = selectedChart["Y Axis"]
     const hue = selectedChart["hue"]
@@ -58,13 +57,42 @@ function MainChart(prop){
               <h1 className=' text-4xl headingFont'>Drag & Drop</h1>
             </div>            
             <div className='md:flex justify-center gap-28'>
-                <DraggableComponent column={column} allDataType={allDataType}/>
+                <div className='hidden md:block'>
+                    <DraggableComponent column={column} allDataType={allDataType}/>
+                </div>
                 <div className='flex flex-col items-center'>
-                    <h1 className='mb-6 md:mt-0 mt-10 md:text-3xl text-xl text-white fonts'>Drop</h1>
-                    <div className='grid md:grid-cols-2 md:gap-y-8 gap-x-16'>
-                        {xAxis.value && <DroppableComponent property={"X Axis"} dataType={xAxis.dataType} allDataType={allDataType} setReqChosen={setReqChosen} setReq={setReq} chartSelected={chartSelected}/>}
-                        {yAxis.value && <DroppableComponent property={"Y Axis"} dataType={yAxis.dataType} allDataType={allDataType} setReqChosen={setReqChosen} setReq={setReq} chartSelected={chartSelected}/>}
-                        {hue.value && <DroppableComponent property={"Hue"} dataType={hue.dataType} allDataType={allDataType} setReqChosen={setReqChosen} setReq={setReq} chartSelected={chartSelected}/>}
+                    <h1 className='mb-6 md:mt-0 mt-10 md:text-3xl text-xl text-white fonts'>
+                        <span className="md:inline hidden">Drop</span>
+                        <span className="md:hidden">Select</span>
+                    </h1>
+                    <div className='grid md:grid-cols-2 md:gap-y-8 gap-y-4 gap-x-16'>
+                        {xAxis.value && <InputOrDropdown 
+                            property={"X Axis"} 
+                            dataType={xAxis.dataType} 
+                            allDataType={allDataType} 
+                            setReqChosen={setReqChosen} 
+                            setReq={setReq} 
+                            chartSelected={chartSelected}
+                            column={column}
+                        />}
+                        {yAxis.value && <InputOrDropdown 
+                            property={"Y Axis"} 
+                            dataType={yAxis.dataType} 
+                            allDataType={allDataType} 
+                            setReqChosen={setReqChosen} 
+                            setReq={setReq} 
+                            chartSelected={chartSelected}
+                            column={column}
+                        />}
+                        {hue.value && <InputOrDropdown 
+                            property={"Hue"} 
+                            dataType={hue.dataType} 
+                            allDataType={allDataType} 
+                            setReqChosen={setReqChosen} 
+                            setReq={setReq} 
+                            chartSelected={chartSelected}
+                            column={column}
+                        />}
                     </div>
                 </div>
             </div>
