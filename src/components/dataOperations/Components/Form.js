@@ -1,75 +1,65 @@
-
-// import Papa from "papaparse";
-
-// function Form(props) {
-//   const handleFileChange = (event) => {
-//     event.preventDefault();
-//     const file = event.target.files[0];
-//     props.setFile(file)
-//     if (file) {
-//       Papa.parse(file, {
-//         header: true,
-//         dynamicTyping: true,
-//         complete: (result) => {
-//           const { data: dataset } = result;
-//           props.setData(dataset);
-//         },
-//         error: (error) => {
-//           console.error("CSV parsing error:", error);
-//         },
-//       });
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <form  action="">
-//       <div 
-//       className="dataColor min-h-[60px] min-w-[250px] drop-shadow-2xl rounded-full w-fit flex items-center justify-center mb-14"
-//       >
-//        <input type="file" name="file-input" id="file-input" className="hidden" onChange={handleFileChange}/>
-//        <label id="file-input-label" for="file-input"
-//       >Select a File</label>
-//       </div>
-//         <input type="file"  onChange={handleFileChange}
-//         placeholder="Upload" 
-//           className="dataColor min-h-[60px] max-w-[250px] drop-shadow-2xl rounded-full w-fit flex items-center justify-center mb-14"
-//         />
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default Form;
-
-
-
+import React from "react";
 import Papa from "papaparse";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Form(props) {
   const handleFileChange = (event) => {
     event.preventDefault();
     const file = event.target.files[0];
-    props.setFile(file)
+    
     if (file) {
+      if (file.type !== "text/csv") {
+        toast.error('Please upload a CSV file!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+
+      props.setFile(file);
       Papa.parse(file, {
         header: true,
         dynamicTyping: true,
         complete: (result) => {
           const { data: dataset } = result;
           props.setData(dataset);
+          toast.success('CSV file uploaded successfully!', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         },
         error: (error) => {
           console.error("CSV parsing error:", error);
+          toast.error('Error parsing CSV file. Please try again.', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         },
       });
     }
   };
 
   return (
+    <>
       <label
-      htmlFor="file-input" // Use htmlFor instead of "for" to associate with the input
-      className=" cursor-pointer dataColor min-h-[60px] min-w-[250px] drop-shadow-2xl rounded-full w-fit flex items-center justify-center mb-14"
+        htmlFor="file-input"
+        className="cursor-pointer dataColor min-h-[60px] min-w-[250px] drop-shadow-2xl rounded-full w-fit flex items-center justify-center mb-14"
       >
         <input
           type="file"
@@ -77,10 +67,12 @@ function Form(props) {
           id="file-input"
           className="hidden"
           onChange={handleFileChange}
+          accept=".csv"
         />
         Upload Data Set
       </label>
-  
+      <ToastContainer />
+    </>
   );
 }
 

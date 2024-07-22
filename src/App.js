@@ -12,6 +12,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 
 
 import MainPage from "./components/MainPage";
+import LandingPage from "./FrontPage/Main";
 
 import Navbar from "./components/Navbar";
 
@@ -82,7 +83,7 @@ function App() {
         path="/home"
         element={
           <>
-          <MainPage setData={setDataSet} setCheck={setCheck} setFile={setFile} check={check}/>
+          <LandingPage setData={setDataSet} setCheck={setCheck} setFile={setFile} check={check}/>
           </>
         }
       />
