@@ -5,6 +5,8 @@ function ShowCustomize({setSelectedCustom,chart}) {
     const [activeOption, setActiveOption] = useState({});
     const [hoverName, setHoverName] = useState();
     const [hoverProp, setHoverProp] = useState();
+    
+
 
     const [selectedCust, setSelectedCust] = useState(
         options.reduce((acc, option) => {
@@ -62,18 +64,18 @@ function ShowCustomize({setSelectedCustom,chart}) {
                     {checkChart(option.name) && (
                     <div className='relative flex items-center gap-x-8'>
                         <div className='relative flex items-center justify-center'>
-                            {hoverName === option.name && 
-                            <div className='flex z-10 absolute right-[100%] -ml-2'>
-                                <div className='textFont p-2 min-w-[129px] rounded-2xl simpleData bg-white '>
-                                    <h3 className='opacity-50'>
-                                        {option.description}
-                                    </h3>
-                                </div>    
-                                <div className='flex items-center justify-center'>
-                                    <div className='polygon w-[20px] h-[15px] bg-white'></div>
-                                </div>
+                        {hoverName === option.name && 
+                        <div className='hidden md:flex z-10 absolute right-[100%] -ml-2'>
+                            <div className='textFont p-2 min-w-[129px] rounded-2xl simpleData bg-white '>
+                                <h3 className='opacity-50'>
+                                    {option.description}
+                                </h3>
+                            </div>    
+                            <div className='flex items-center justify-center'>
+                                <div className='polygon w-[20px] h-[15px] bg-white'></div>
                             </div>
-                            }
+                        </div>
+                        }
                             <div className='flex items-center justify-center'>
                                 <h3 onClick={() => handleClick(index)}
                                     onMouseEnter={() => setHoverName(option.name)}
@@ -100,7 +102,7 @@ function ShowCustomize({setSelectedCustom,chart}) {
                             >
                             {choice.name}
                             {hoverProp === choice.name && 
-                            <div className='flex opacity-100 flex-col z-10 absolute bottom-[100%] -ml-2'>
+                            <div className='hidden md:flex md:flex-col opacity-100 z-10 absolute bottom-[100%] -ml-2'>
                                 <div className='textFont p-2 min-w-[129px] rounded-2xl simpleData bg-white '>
                                     <h3 className='text-black'>
                                         {choice.description}

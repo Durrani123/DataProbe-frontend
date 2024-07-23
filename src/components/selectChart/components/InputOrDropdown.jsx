@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 
 function InputOrDropdown({ property, dataType, allDataType, setReqChosen, setReq, chartSelected, column }) {
-  const [droppedItem, setDroppedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    setDroppedItem(null);
+    setSelectedItem(null);
   }, [chartSelected]);
 
   const handleSelect = (item) => {
     if (allDataType[item] === dataType || dataType === "") {
-      setDroppedItem(item);
+      setSelectedItem(item);
       if (property === "X Axis" || property === "Y Axis") {
         setReqChosen(prevState => ({
           ...prevState,
@@ -30,44 +30,45 @@ function InputOrDropdown({ property, dataType, allDataType, setReqChosen, setReq
   );
 
   return (
-    <div className="textFont darkGray text-white border-4 border-black">
-      <div className="min-h-[114px] min-w-[276px] flex flex-col items-center">
-        <div className="flex items-center mb-2 min-w-[200px]">
-          <h1 className="text-xl w-1/3">{property}</h1>
-          <h1 className="w-1/3 opacity-70 text-base">{dataType}</h1>
-          {(property === "X Axis" || property === "Y Axis") && <i className='w-1/3 fa fa-asterisk'></i>}
+    <div className="textFont darkGray text-white border-4 border-black w-full max-w-[280px] sm:max-w-sm mx-auto">
+      <div className="p-2 sm:p-4">
+        <div className="flex items-center justify-between mb-2">
+          <h1 className="text-lg sm:text-xl">{property}</h1>
+          <h1 className="opacity-70 text-sm sm:text-base">{dataType}</h1>
+          {(property === "X Axis" || property === "Y Axis") && <i className='fa fa-asterisk'></i>}
         </div>
 
-        {/* Desktop version (drag and drop) */}
-        <div className="hidden md:flex mt-2 items-center justify-center min-h-[45px] min-w-[232px] bg-white cursor-pointer">
-          <h1 className={`text-xl ${droppedItem ? "opacity-100" : "text-black opacity-40"}`}>
-            {droppedItem ? droppedItem : "Drop Here"}
-          </h1>
-        </div>
-
-        {/* Mobile version (dropdown) */}
-        <div className="md:hidden w-full px-4">
+        <div className="relative">
           <div 
-            className="bg-white text-black p-2 cursor-pointer"
+            className={`p-1 sm:p-2 cursor-pointer w-full text-left text-sm sm:text-base ${
+              selectedItem 
+                ? 'bg-blue-500 text-white' 
+                : 'bg-white text-black'
+            }`}
             onClick={() => setIsOpen(!isOpen)}
           >
-            {droppedItem || "Select an item"}
+            {selectedItem || "Select an item"}
           </div>
           {isOpen && (
-            <div className="mt-1 bg-white text-black max-h-40 overflow-y-auto">
+            <div className="absolute z-10 mt-1 w-full bg-white text-black max-h-48 sm:max-h-60 overflow-y-auto shadow-lg">
               {filteredColumns.map((item) => (
                 <div 
                   key={item} 
-                  className="p-2 hover:bg-gray-200 cursor-pointer"
+                  className={`p-1 sm:p-2 cursor-pointer text-sm sm:text-base ${
+                    item === selectedItem
+                      ? 'bg-blue-500 text-white'
+                      : 'hover:bg-gray-200'
+                  }`}
                   onClick={() => handleSelect(item)}
                 >
-                  {item} <span className="text-xs text-gray-500">({allDataType[item]})</span>
+                  {item} <span className={`text-xs ${
+                    item === selectedItem ? 'text-blue-200' : 'text-gray-500'
+                  }`}>({allDataType[item]})</span>
                 </div>
               ))}
             </div>
           )}
         </div>
-
       </div>
     </div>
   );

@@ -5,11 +5,9 @@ import DisplayChart from './components/DisplayChart'
 import getColumnName from '../dataOperations/Functions/getColumnName'
 import getDataType from '../dataOperations/Functions/getDataType'
 
-import DraggableComponent from './components/DraggableComponent'
-import DroppableComponent from './components/DroppableComponent'
 import InputOrDropdown from './components/InputOrDropdown'
 
-import {Select,DragI} from '../../assets/Icons';
+import {Select} from '../../assets/Icons';
 
 function MainChart(prop){
     const dataSet = prop.dataSet
@@ -52,53 +50,43 @@ function MainChart(prop){
                 <h1 className='headingFont'>Select Chart Type</h1>
             </div>
             <DisplayChart setChartSelected={setChartSelected} chartSelected={chartSelected}/>
-            <div className="md:mt-24 mt-16  md:mb-16 mb-8 flex justify-center gap-4 items-center">
-              <img src={DragI} className="md:w-20 w-10" alt="" />
-              <h1 className=' text-4xl headingFont'>Drag & Drop</h1>
+            <div className="md:mt-24 mt-16 md:mb-16 mb-8 flex justify-center gap-4 items-center">
+              <h1 className='text-4xl headingFont'>Select Data</h1>
             </div>            
-            <div className='md:flex justify-center gap-28'>
-                <div className='hidden md:block'>
-                    <DraggableComponent column={column} allDataType={allDataType}/>
-                </div>
-                <div className='flex flex-col items-center'>
-                    <h1 className='mb-6 md:mt-0 mt-10 md:text-3xl text-xl text-white fonts'>
-                        <span className="md:inline hidden">Drop</span>
-                        <span className="md:hidden">Select</span>
-                    </h1>
-                    <div className='grid md:grid-cols-2 md:gap-y-8 gap-y-4 gap-x-16'>
-                        {xAxis.value && <InputOrDropdown 
-                            property={"X Axis"} 
-                            dataType={xAxis.dataType} 
-                            allDataType={allDataType} 
-                            setReqChosen={setReqChosen} 
-                            setReq={setReq} 
-                            chartSelected={chartSelected}
-                            column={column}
-                        />}
-                        {yAxis.value && <InputOrDropdown 
-                            property={"Y Axis"} 
-                            dataType={yAxis.dataType} 
-                            allDataType={allDataType} 
-                            setReqChosen={setReqChosen} 
-                            setReq={setReq} 
-                            chartSelected={chartSelected}
-                            column={column}
-                        />}
-                        {hue.value && <InputOrDropdown 
-                            property={"Hue"} 
-                            dataType={hue.dataType} 
-                            allDataType={allDataType} 
-                            setReqChosen={setReqChosen} 
-                            setReq={setReq} 
-                            chartSelected={chartSelected}
-                            column={column}
-                        />}
-                    </div>
+            <div className='flex flex-col items-center'>
+                <div className='grid md:grid-cols-2 gap-8 w-full max-w-4xl'>
+                    {xAxis.value && <InputOrDropdown 
+                        property={"X Axis"} 
+                        dataType={xAxis.dataType} 
+                        allDataType={allDataType} 
+                        setReqChosen={setReqChosen} 
+                        setReq={setReq} 
+                        chartSelected={chartSelected}
+                        column={column}
+                    />}
+                    {yAxis.value && <InputOrDropdown 
+                        property={"Y Axis"} 
+                        dataType={yAxis.dataType} 
+                        allDataType={allDataType} 
+                        setReqChosen={setReqChosen} 
+                        setReq={setReq} 
+                        chartSelected={chartSelected}
+                        column={column}
+                    />}
+                    {hue.value && <InputOrDropdown 
+                        property={"Hue"} 
+                        dataType={hue.dataType} 
+                        allDataType={allDataType} 
+                        setReqChosen={setReqChosen} 
+                        setReq={setReq} 
+                        chartSelected={chartSelected}
+                        column={column}
+                    />}
                 </div>
             </div>
             <div className='flex items-center justify-center'>
                 <h1 
-                className='textFont text-white lightGreen text-3xl md:mt-10 mt-5   flex items-center justify-center min-w-[220px] min-h-[50px]  cursor-pointer'
+                className='textFont text-white lightGreen text-3xl md:mt-10 mt-5 flex items-center justify-center min-w-[220px] min-h-[50px] cursor-pointer'
                 onClick={()=>buttonCheck()}>
                 Submit</h1>
             </div>
