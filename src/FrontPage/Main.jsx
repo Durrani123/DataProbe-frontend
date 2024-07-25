@@ -27,7 +27,7 @@ function LandingPage(prop) {
 
   return (
 
-    <div className='bg-black'>
+    <div className='bg-gray-900'>
       <Navbar/>
       <CTA setData={setDataSet} setFile={prop.setFile}/>
       <Features/>
