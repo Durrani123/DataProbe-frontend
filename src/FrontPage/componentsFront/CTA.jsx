@@ -17,9 +17,16 @@ const CTA = (props) => (
                 >
                     <div className="relative z-10">
                         <div className="max-w-2xl mx-auto text-center">
-                            <h2 className="text-gray-50 text-3xl font-semibold sm:text-4xl">
+                            {/* <h2 className="text-gray-50 text-3xl font-semibold sm:text-4xl">
                             VISUALIZE, INTERACT, UNDERSTAND: YOUR DATA STORY
-                            </h2>
+                            </h2> */}
+                            <h1 className="text-4xl bg-clip-text text-transparent bg-gradient-to-r font-extrabold mx-auto sm:text-6xl"
+                            style={{
+                                backgroundImage: "linear-gradient(179.1deg, #FFFFFF 0.77%, rgba(255, 255, 255, 0) 182.09%)"
+                            }}
+                        >
+                            See your data, understand your world.
+                        </h1>
                             <p className="mt-5 text-gray-300">
                             DataProbe is your ultimate solution! Our advanced visualization platform empowers you to create dynamic, interactive charts that transform data into clear, actionable insights for any audience.                            </p>
                         </div>

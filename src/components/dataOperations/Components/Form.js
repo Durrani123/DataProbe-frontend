@@ -59,7 +59,8 @@ function Form(props) {
     <>
       <label
         htmlFor="file-input"
-        className="cursor-pointer dataColor min-h-[60px] min-w-[250px] drop-shadow-2xl rounded-full w-fit flex items-center justify-center mb-14"
+        className="cursor-pointer min-h-[60px] min-w-[250px] text-white drop-shadow-2xl rounded-full w-fit flex items-center justify-center mb-14"
+        style={{backgroundColor:"#a657f5"}}
       >
         <input
           type="file"
